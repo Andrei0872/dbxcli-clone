@@ -16,8 +16,10 @@ void mvCommand (char* args) {
   src = realpath(src, NULL);
   dest = strcat(DEST_BASE, dest);
 
-  printf("src:%s\n", src);
-  printf("dest:%s\n", dest);
+  // printf("src:%s\n", src);
+  // printf("dest:%s\n", dest);
+
+  dest[strlen(dest) - 1] = '\0';
 
   pid_t pid = fork();
   if (pid < 0) {
