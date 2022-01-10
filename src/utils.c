@@ -19,7 +19,8 @@ int equals (char* s1, char* s2) {
 
 void getKVPairFromRawString (char* rawStr, char** k, char** v, char delimiter) {
   int delimIdx = getIndexOf(rawStr, delimiter);
-  if (delimIdx == -1) {
+  if (delimIdx == -1) 
+  {
     return;
   }
 

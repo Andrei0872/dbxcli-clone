@@ -6,18 +6,34 @@
 #include "mv.h"
 #include "utils.h"
 #include "rm.h"
+#include "ls.h"
 
 int executeCommand (char* rawCommand) {
-  char* rootCmd;
+  
+  char* rootCmd = rawCommand;
   char* cmdArgs;
 
-  getKVPairFromRawString(rawCommand, &rootCmd, &cmdArgs, ' ');
 
-  if (equals(rootCmd, "cp")) {
+  getKVPairFromRawString(rawCommand, &rootCmd, &cmdArgs, ' ');
+  return 0;
+  //
+  //printf("%s  -> %s\n", rootCmd, cmdArgs);
+
+  if (equals(rootCmd, "cp")) 
+  {
     cpCommand(cmdArgs);
-  } else if (equals(rootCmd, "mv")) {
+  } 
+  else if (equals(rootCmd, "mv")) 
+  {
     mvCommand(cmdArgs);
-  } else if (equals(rootCmd, "rm")) {
+  } 
+  else if (equals(rootCmd, "rm")) 
+  {
     rmCommand(cmdArgs);
+  }
+  else if (equals(rootCmd, "ls"))
+  {
+
+    lsCommand(cmdArgs);
   }
 }
