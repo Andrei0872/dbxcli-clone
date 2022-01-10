@@ -15,6 +15,7 @@ void cpCommand (char* args) {
 
   src = realpath(src, NULL);
   dest = strcat(DEST_BASE, dest);
+  dest[strlen(dest) - 1] = '\0';
 
   pid_t pid = fork();
   if (pid < 0) {
