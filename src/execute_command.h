@@ -1,1 +1,1 @@
-void executeCommand();
+int executeCommand(char* rawCommand);
