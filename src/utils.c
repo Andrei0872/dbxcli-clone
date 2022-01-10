@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <sys/wait.h>
 
 int getIndexOf (char* str, char ch) {
   for (int i = 0, len = strlen(str); i < len; i++) {

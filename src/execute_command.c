@@ -14,5 +14,7 @@ int executeCommand (char* rawCommand) {
 
   if (equals(rootCmd, "cp")) {
     cpCommand(cmdArgs);
+  } else if (equals(rootCmd, "mv")) {
+    mvCommand(cmdArgs);
   }
 }

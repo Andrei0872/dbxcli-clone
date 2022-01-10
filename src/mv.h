@@ -1,1 +1,1 @@
-void mvCommand();
+void mvCommand(char *args);
