@@ -1,1 +1,1 @@
-void cpCommand();
+void cpCommand(char* args);
