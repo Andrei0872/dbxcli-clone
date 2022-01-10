@@ -6,16 +6,18 @@
 
 int lsCommand(char* path)
 {
-    
-    char *DEST_BASE = strcat(realpath("dropbox", NULL), "/");
+    char *DEST_BASE = realpath("dropbox", NULL);
     char* new_path;
+
+    if (strlen(path)) {
+        DEST_BASE = strcat(DEST_BASE, "/");
+        printf("THIS IS PATH: %s\n", new_path);
+    }
     new_path = strcat(DEST_BASE, path);
-    printf("THIS IS PATH%s\n", new_path);
     //DIR struct is our directory, where we are working
     //opendir(absolut path, relative path)
     //"." is for current directory
     DIR* dir = opendir(new_path);
-    
 
     //check if this directory actually exists
     if (dir == NULL)

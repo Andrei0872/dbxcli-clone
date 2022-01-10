@@ -19,7 +19,7 @@ void mvCommand (char* args) {
   // printf("src:%s\n", src);
   // printf("dest:%s\n", dest);
 
-  dest[strlen(dest) - 1] = '\0';
+  // dest[strlen(dest) - 1] = '\0';
 
   pid_t pid = fork();
   if (pid < 0) {

@@ -9,15 +9,16 @@
 #include "ls.h"
 
 int executeCommand (char* rawCommand) {
-  
-  char* rootCmd = rawCommand;
-  char* cmdArgs;
+  if (!strlen(rawCommand)) {
+    return 0;
+  }
 
+  rawCommand[strlen(rawCommand) - 1] = '\0';
+
+  char* rootCmd = rawCommand;
+  char* cmdArgs = "";
 
   getKVPairFromRawString(rawCommand, &rootCmd, &cmdArgs, ' ');
-  return 0;
-  //
-  //printf("%s  -> %s\n", rootCmd, cmdArgs);
 
   if (equals(rootCmd, "cp")) 
   {
@@ -33,7 +34,6 @@ int executeCommand (char* rawCommand) {
   }
   else if (equals(rootCmd, "ls"))
   {
-
     lsCommand(cmdArgs);
   }
 }
