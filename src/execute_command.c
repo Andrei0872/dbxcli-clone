@@ -5,6 +5,7 @@
 #include "cp.h"
 #include "mv.h"
 #include "utils.h"
+#include "rm.h"
 
 int executeCommand (char* rawCommand) {
   char* rootCmd;
@@ -16,5 +17,7 @@ int executeCommand (char* rawCommand) {
     cpCommand(cmdArgs);
   } else if (equals(rootCmd, "mv")) {
     mvCommand(cmdArgs);
+  } else if (equals(rootCmd, "rm")) {
+    rmCommand(cmdArgs);
   }
 }

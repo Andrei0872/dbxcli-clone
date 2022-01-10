@@ -1,0 +1,1 @@
+void rmCommand(char *directoryOrFile);
