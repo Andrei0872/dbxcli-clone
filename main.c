@@ -1,13 +1,27 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-
+#include <dirent.h>
+#include <sys/stat.h>
 #include "src/execute_command.h"
 
 #define BOLDGREEN   "\033[1m\033[32m"      /* Bold Green */
 #define RESET "\x1B[0m"
 
-int main (int argC, char *args[]) {
+void checkDropbox()
+{
+  DIR* dbx = opendir("dropbox");
+  if (dbx == NULL)
+  {
+    mkdir("dropbox",0777);
+  }
+  closedir(dbx);
+}
+
+int main (int argC, char *args[]) 
+{
+  checkDropbox();
+
   char *rawCommand = NULL;
   size_t len = 0;
   ssize_t read;
