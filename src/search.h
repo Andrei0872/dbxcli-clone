@@ -1,0 +1,1 @@
+void searchCommand (char* args);
