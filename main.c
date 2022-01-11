@@ -19,8 +19,11 @@ int main (int argC, char *args[]) {
     if (strstr(rawCommand, "exit")) {
       break;
     }
-
-    executeCommand(rawCommand);
+    if (executeCommand(rawCommand) == 2)
+    {
+      break;
+    }
+    //executeCommand(rawCommand);
   }
 
   free(rawCommand);

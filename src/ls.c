@@ -9,9 +9,9 @@ int lsCommand(char* path)
     char *DEST_BASE = realpath("dropbox", NULL);
     char* new_path;
 
-    if (strlen(path)) {
+    if (strlen(path))
+    {
         DEST_BASE = strcat(DEST_BASE, "/");
-        printf("THIS IS PATH: %s\n", new_path);
     }
     new_path = strcat(DEST_BASE, path);
     //DIR struct is our directory, where we are working

@@ -7,6 +7,8 @@
 #include "utils.h"
 #include "rm.h"
 #include "ls.h"
+#include "mkdir.h"
+#include "help.h"
 
 int executeCommand (char* rawCommand) {
   if (!strlen(rawCommand)) {
@@ -19,7 +21,6 @@ int executeCommand (char* rawCommand) {
   char* cmdArgs = "";
 
   getKVPairFromRawString(rawCommand, &rootCmd, &cmdArgs, ' ');
-
   if (equals(rootCmd, "cp")) 
   {
     cpCommand(cmdArgs);
@@ -35,5 +36,22 @@ int executeCommand (char* rawCommand) {
   else if (equals(rootCmd, "ls"))
   {
     lsCommand(cmdArgs);
+  }
+  else if (equals(rootCmd, "mkdir"))
+  {
+    mkdirCommand(cmdArgs);
+  }
+  else if (equals(rootCmd, "--help"))
+  {
+    helpCommand();
+  }
+  
+  else if (equals(rootCmd,"exit") || equals(rootCmd, "quit"))
+  {
+    return 2;
+  }
+  else
+  {
+    printf("Unknown command. Type --help for more information\n");
   }
 }
