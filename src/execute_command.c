@@ -9,6 +9,7 @@
 #include "ls.h"
 #include "mkdir.h"
 #include "help.h"
+#include "search.h"
 
 int executeCommand (char* rawCommand) {
   if (!strlen(rawCommand)) {
@@ -45,7 +46,10 @@ int executeCommand (char* rawCommand) {
   {
     helpCommand();
   }
-  
+  else if (equals(rootCmd, "search"))
+  {
+    searchCommand(cmdArgs);
+  }
   else if (equals(rootCmd,"exit") || equals(rootCmd, "quit"))
   {
     return 2;
